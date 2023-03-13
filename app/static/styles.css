@@ -1,0 +1,80 @@
+:root {
+	--color-1: #faf0e6;
+	--color-2: #36454f;
+	--color-3: #fcae1e
+}
+button,
+a[role="button"] {
+	color: var(--color-2);
+	text-decoration: none;
+}
+
+input, select, textarea {
+	width: 100%;
+}
+.main-header {
+	font-weight: bold;
+	margin-top: 20px;
+	color: #000;
+	text-align: center;
+}
+.cards-con {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+
+}
+.cards-con > div {
+	width: 245px;
+	margin: 0px 10px 10px 0;
+	padding: 10px;
+	border: 1px groove grey;
+	border-radius: 5px;
+}
+.show-btn, .card-btn {
+	margin: 10px;
+}
+.card-i:hover{
+	box-shadow: 0 0 25px 0 rgba(179,179,179,.5);
+	/* cursor: pointer; */
+}
+.edit-btn {
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	font-size: 1.3em;
+	top: 4px;
+	right: 10px;
+}
+.card-footer {
+	background-color: var(--color-3);
+}
+.card {
+	background-color: var(--color-3);
+}
+#collapseExample > .card {
+	background-color: var(--color-1);
+	margin-top: 1px;
+}
+#collapseTrans > .card {
+	background-color: var(--color-1);
+}
+body {
+	background-color: var(--color-1);
+}
+.card-title {
+	text-align: center;
+}
+.card-btn {
+	background-color: var(--color-1);
+	border-color: var(--color-1);
+}
+hr {
+	border-top: 5px solid var(--color-2);
+	border-radius: 5px;
+}
+#audio-btn {
+	border: none;
+	background: none;
+}
