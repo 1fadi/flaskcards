@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Practice and Learn!{% endblock %}
+
+{% block page_content %}
+<div class="row align-items-center" style="height: 60vh;">
+<h2 class="main-header">Practice!</h2>
+<div class="card text-center mx-auto col-10 col-md-8 col-lg-8">
+  <div class="card-body">
+	  <h2><button id="audio-btn" onclick="playAudio('{{ card.name }}')">&#128483</button></h2>
+	<h2 class="card-title">{{ card.name }}</h2>
+	<a class="btn btn-primary show-btn" data-bs-toggle="collapse" href="#collapseTrans" role="button" aria-expanded="false" aria-controls="collapseTrans">
+	和
+	</a>
+	<a class="btn btn-primary show-btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+	Example
+	</a>
+	<div class="collapse" id="collapseTrans">
+	  <div class="card card-body">
+		  <h2>{{ card.description }}</h2>
+	  </div>
+	</div>
+	<div class="collapse" id="collapseExample">
+	  <div class="card card-body">
+		{% if card.example %}
+			<p>{{ card.example }}</p>
+		{% else %}
+		<p>
+			<a href="{{ url_for("main.edit_card" , card=card.name) }}" role="button">
+				Add an example
+			</a>
+		</p>
+		{% endif %}
+	  </div>
+	</div>
+  </div>
+  <div class="card-footer text-muted">
+	<a href="{{ url_for("main.move_card", card=card.name, direction="up") }}" class="btn btn-outline-success card-btn">I knew</a>
+    <a href="{{ url_for("main.move_card", card=card.name, direction="down") }}" class="btn btn-outline-danger card-btn">I didn't know</a>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% from "bootstrap5/form.html" import render_form %}
+
+{% block page_content %}
+<h2 class="main-header">{{ header }}</h2>
+<div class="col-md-4 mx-auto">
+	{{ render_form(form) }}
+	<a href="{{ url_for("main.list_cards") }}" role="button">Cancel</a>
+</div>
+{% endblock %}
+
