@@ -1,0 +1,56 @@
+{% from "bootstrap5/nav.html" import render_nav_item %}
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+		<link rel="shortcut icon" href="{{ url_for("static", filename="favicon.ico") }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="{{ url_for("static", filename="scripts.js") }}"></script>
+
+        <title>Flask Cards</title>
+        {% endblock %}
+    </head>
+    <body>
+	{% block navbar %}
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+			<a class="navbar-brand" href="{{ url_for("main.index") }}">Flash cards</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse text-center" id="navbarsExample11">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for("main.get_card") }}">Practice</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for("main.list_cards") }}">All cards</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for("main.add_card") }}">Add cards</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	{% endblock %}
+        <!-- Your page content -->
+        {% block content %}
+		<div class="container">
+			{% block page_content %}{% endblock %}
+		</div>
+		{% endblock %}
+
+        {% block scripts %}
+            {{ bootstrap.load_js() }}
+			{{ moment.include_moment() }}
+        {% endblock %}
+    </body>
+</html>
