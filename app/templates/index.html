@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<br>
+<h2 class="main-header text-center">Flask Cards</h2>
+<br><br>
+<div class="d-flex justify-content-center">
+{% for box in BOXES %}
+<h5 class="col-1"><a href="{{ url_for("main.list_box_cards", id=box) }}" role="button">&#9744 Box {{ box }}</a></h5>
+{% endfor %}
+</div>
+
+<hr>
+<div>
+	<h4>Cards: {{ cards_num }}</h4>
+	<h5><a id="download-link" href="{{ url_for("main.download_db") }}">Click here</a> to download all cards in JSON format.</h5>
+</div>
+{% endblock %}
