@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h2 class="main-header">{{ count }} Cards</h2>
+
+{% set prev = namespace(box=none) %}
+
+{% for card in cards %}
+
+	{% if card.box != prev.box %}
+
+		{% if not loop.first %}
+			</div>
+		{% endif %}
+
+		<h3 class="box">&#10066<strong> Box {{ card.box }}</strong></h3>
+		<div class="cards-con">
+	{% endif %}
+		
+	  <div class="card card-i">
+		<div class="card-body">
+			<h4 class="card-title">{{ card.name }}</h4>
+			<p class="card-text text-center">{{ card.description }}</p>
+			<a href="{{ url_for("main.edit_card", card=card.name) }}" class="edit-btn">&#9998</a>
+		</div>
+		<!-- <div class="card-footer"> -->
+		<!-- 	<small class="text-muted">see an example</small> -->
+		<!-- </div> -->
+	  </div>
+
+	{% set prev.box = card.box %}
+
+	{% if loop.last %}
+		</div>
+	{% endif %}
+
+{% endfor %}
+{% endblock %}
