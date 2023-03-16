@@ -2,6 +2,10 @@
 
 {% block page_content %}
 <h2 class="main-header">{{ count }} Cards</h2>
+<br>
+{% if count == 0 %}
+	<h5>Looks empty.. <a href="{{ url_for("main.add_card") }}">click here to add cards!</a></h5>
+{% endif %}
 
 {% set prev = namespace(box=none) %}
 
