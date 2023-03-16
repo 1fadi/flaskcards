@@ -6,7 +6,7 @@
 <br><br>
 <div class="d-flex justify-content-center">
 {% for box in BOXES %}
-<h5 class="col-1"><a href="{{ url_for("main.list_box_cards", id=box) }}" role="button">&#9744 Box {{ box }}</a></h5>
+<h5 class="box-item"><a href="{{ url_for("main.list_box_cards", id=box) }}" role="button">Box {{ box }}</a></h5>
 {% endfor %}
 </div>
 
